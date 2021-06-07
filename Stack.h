@@ -1,17 +1,18 @@
 #pragma once
-template<typename A>
-class Stack
-{
+template<typename T>
+class Stack {
 public:
 	Stack();
-	Stack(int size);
-	Stack(int size, A value);
-	//void push();
-	//A pop();
-	//A top();
-private:
+	Stack(int);
+	Stack(int, T);
+	void push(T);
+	T pop();
+	T top() const;
+	friend std::ostream& operator<<(std::ostream&, const Stack&);
+	T operator[](int) const;
+protected:
 	void init();
-	void init(A value);
-	A* _arr;
-	int _size;
+	void init(T);
+	T* _arr;
+	int _size, _max;
 };
